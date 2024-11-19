@@ -5,11 +5,22 @@ sources :
       database: raw
       schema: jaffle_shop
       tables:
-         - name: customer
+         - name: customers
          - name: orders
            loaded_at_field: _et1_loaded_at
            freshness:
                warn_after: {count: 12, period: hour }
                error_after: {count: 24, period: hour}
+
+models:
+  - name: stg_custommer
+    columns:
+      - name: customer_id
+        tests:
+          - unique
+          - not_null
+
+                
+                
 
               
